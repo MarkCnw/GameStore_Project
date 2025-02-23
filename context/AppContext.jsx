@@ -1,6 +1,7 @@
 'use client'
 import { productsDummyData, userDummyData } from "@/assets/assets";
 import { useUser } from "@clerk/nextjs"
+
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -28,14 +29,13 @@ export const AppContextProvider = (props) => {
 
     const fetchUserData = async () => {
         try {
-            
             if (user.publicMetadata.role === 'seller') {
                 setIsSeller(true)
             }
             setUserData(userDummyData)
-       } catch (error) {
-        
-       }
+        } catch (error) {
+            
+        }
     }
 
     const addToCart = async (itemId) => {
