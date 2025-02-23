@@ -273,7 +273,7 @@ export const productsDummyData = [
     "category": "Laptop",
     "date": 1738668619198,
     "__v": 0
-  }
+  },
 ]
 
 export const userDummyData = {
