@@ -132,20 +132,17 @@ export const HomeIcon = () => (
 
 export const productsDummyData = [
   {
-    "_id": "67a1f4e43f34a77b6dde9144",
-    "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-    "name": "Apple AirPods Pro 2nd gen",
-    "description": "Apple AirPods Pro (2nd Gen) with MagSafe Case (USB-C) provide excellent sound, active noise cancellation, and a comfortable fit. The USB-C case ensures quick charging, and they pair seamlessly with Apple devices for an effortless audio experience.",
-    "price": 499.99,
-    "offerPrice": 399.99,
+    "_id": "67bc43950125b87003d97ed8",
+    "userId": "user_2tRlUAGEBy0PSrF2R1jNwptnGMx",
+    "name": "BrawHalla",
+    "description": "fighting action game",
+    "price": 5.99,
+    "offerPrice": 3.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/k4dafzhwhgcn5tnoylrw.webp",
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/j212frakb8hdrhvhajhg.webp",
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/imwuugqxsajuwqpkegb5.webp",
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/k1oqaslw5tb3ebw01vvj.webp"
+      "https://res.cloudinary.com/donamoyxz/image/upload/v1740391316/od3nhrqi4hrbxs8tnrua.jpg"
     ],
     "category": "Earphone",
-    "date": 1738667236865,
+    "date": 1740391317631,
     "__v": 0
   },
   {
