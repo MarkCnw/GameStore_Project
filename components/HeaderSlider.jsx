@@ -1,97 +1,65 @@
-import React, { useState, useEffect } from "react";
-import { assets } from "@/assets/assets";
-import Image from "next/image";
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const sliderData = [
+  { id: 1, videoSrc: '/videos/partyanimalll.mp4', title: 'Party Animals' },
+  { id: 2, videoSrc: '/videos/thelord.mp4', title: 'The Lord of the Rings: Return to Moria' },
+  { id: 3, videoSrc: '/videos/freecompress-sonic.mp4', title: 'Sonic Superstars' },
+];
 
 const HeaderSlider = () => {
-  const sliderData = [
-    {
-      id: 1,
-      title: "Experience Pure Sound - Your Perfect Game Play With Spidy",
-      offer: "Limited Time Offer 30% Off",
-      buttonText1: "Buy now",
-      buttonText2: "Find more",
-      imgSrc: assets.spiderman2,
-    },
-    {
-      id: 2,
-      title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
-      offer: "Hurry up only few lefts!",
-      buttonText1: "Shop Now",
-      buttonText2: "Explore Deals",
-      imgSrc: assets.header_playstation_image,
-    },
-    {
-      id: 3,
-      title: "RPG Game Play - Open World With Your Beauty Charecter",
-      offer: "Exclusive Deal 40% Off",
-      buttonText1: "Order Now",
-      buttonText2: "Learn More",
-      imgSrc: assets.naraka,
-    },
-  ];
-
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderData.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [sliderData.length]);
-
-  const handleSlideChange = (index) => {
-    setCurrentSlide(index);
-  };
+  }, []);
 
   return (
-    <div className="overflow-hidden relative w-full">
-      <div
-        className="flex transition-transform duration-700 ease-in-out"
-        style={{
-          transform: `translateX(-${currentSlide * 100}%)`,
-        }}
-      >
-        {sliderData.map((slide, index) => (
-          <div
-            key={slide.id}
-            className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#E6E9F2] py-8 md:px-14 px-5 mt-6 rounded-xl min-w-full"
-          >
-            <div className="md:pl-8 mt-10 md:mt-0">
-              <p className="md:text-base text-orange-600 pb-1">{slide.offer}</p>
-              <h1 className="max-w-lg md:text-[40px] md:leading-[48px] text-2xl font-semibold">
-                {slide.title}
-              </h1>
-              <div className="flex items-center mt-4 md:mt-6 ">
-                <button className="md:px-10 px-7 md:py-2.5 py-2 bg-orange-600 rounded-full text-white font-medium">
-                  {slide.buttonText1}
-                </button>
-                <button className="group flex items-center gap-2 px-6 py-2.5 font-medium">
-                  {slide.buttonText2}
-                  <Image className="group-hover:translate-x-1 transition" src={assets.arrow_icon} alt="arrow_icon" />
-                </button>
-              </div>
-            </div>
-            <div className="flex items-center flex-1 justify-center">
-              <Image
-                className="md:w-72 w-48"
-                src={slide.imgSrc}
-                alt={`Slide ${index + 1}`}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className='relative w-full h-[500px] flex justify-center items-center mt-6'>
+      {/* กรอบแบบ Glow Effect */}
+      <div className='relative w-[90%] h-full rounded-xl overflow-hidden border-[6px] border-[#0f172a] shadow-[0_0_30px_rgba(59,130,246,0.4)] bg-[#0f172a]'>
+        {/* วิดีโอ Background */}
+        <div className='absolute inset-0 w-full h-full'>
+          {sliderData.map((slide, index) => (
+            <motion.video
+              key={slide.id}
+              src={slide.videoSrc}
+              autoPlay
+              loop
+              muted
+              className='absolute w-full h-full object-cover'
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: index === currentSlide ? 1 : 0, scale: 1 }}
+              transition={{ duration: 1 }}
+            />
+          ))}
+        </div>
 
-      <div className="flex items-center justify-center gap-2 mt-8">
-        {sliderData.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => handleSlideChange(index)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${
-              currentSlide === index ? "bg-orange-600" : "bg-gray-500/30"
-            }`}
-          ></div>
+        {/* ชื่อเกม (เพิ่ม Glow & Background) */}
+        {sliderData.map((slide, index) => (
+          <motion.div
+            key={slide.id}
+            className="absolute inset-0 flex justify-center items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentSlide ? 1 : 0 }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="text-white text-6xl font-bold px-4 py-2 rounded-lg bg-black/50 border-2 border-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+              {slide.title}
+            </h2>
+          </motion.div>
         ))}
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
+
+        {/* Shadow Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f172a]/50"></div>
       </div>
     </div>
   );

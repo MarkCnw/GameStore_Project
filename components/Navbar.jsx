@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-import { useClerk, UserButton } from "@clerk/nextjs"
+import { useClerk, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
-  const { isSeller, router,user } = useAppContext();
-  const {openSignIn} = useClerk();
+  const { isSeller, router, user } = useAppContext();
+  const { openSignIn } = useClerk();
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-4 bg-gray-900 text-white border-b border-gray-700 shadow-lg">
@@ -22,7 +22,7 @@ const Navbar = () => {
       />
       
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-6 text-lg font-semibold">
+      <div className="hidden md:flex items-center gap-6 text-lg font-medium">
         <Link href="/" className="hover:text-blue-400 transition">Home</Link>
         <Link href="/all-products" className="hover:text-blue-400 transition">Shop</Link>
         <Link href="/about" className="hover:text-blue-400 transition">About Us</Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
         {isSeller && (
           <button
             onClick={() => router.push("/seller")}
-            className="bg-blue-600 px-4 py-2 rounded-lg text-sm hover:bg-blue-500 transition"
+            className="bg-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-500 transition"
           >
             Seller Dashboard
           </button>
@@ -59,9 +59,9 @@ const Navbar = () => {
               </UserButton>
             </>
             : <button onClick={openSignIn} className="flex items-center gap-2 hover:text-blue-400 transition">
-          <Image src={assets.user_icon} alt="user icon" />
-          Account
-            </button>
+                <Image src={assets.user_icon} alt="user icon" />
+                Account
+              </button>
         }
       </div>
       
@@ -70,7 +70,7 @@ const Navbar = () => {
         {isSeller && (
           <button
             onClick={() => router.push("/seller")}
-            className="bg-blue-600 px-3 py-1.5 rounded-lg text-sm hover:bg-blue-500 transition"
+            className="bg-blue-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-blue-500 transition"
           >
             Seller
           </button>
