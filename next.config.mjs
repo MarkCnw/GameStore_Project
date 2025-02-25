@@ -12,8 +12,18 @@ const nextConfig = {
                 hostname: 'raw.githubusercontent.com',
                 pathname: '**',
             },
+            {
+                protocol: 'https',
+                hostname: 'static.wikia.nocookie.net',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'logos-world.net',  // เพิ่มอันนี้เข้าไป
+                pathname: '**',
+            },
         ],
     },
-};
+}
 
-export default nextConfig;
+export default nextConfig
