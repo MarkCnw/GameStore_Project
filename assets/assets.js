@@ -148,6 +148,22 @@ export const productsDummyData = [
     "category": "Earphone",
     "date": 1740391317631,
     "__v": 0
+  },
+  {
+    "_id": "67bd30824eb2e6f6b91003ef",
+    "userId": "user_2tRlUAGEBy0PSrF2R1jNwptnGMx",
+    "name": "Spider-Man 2",
+    "description": "พลังที่เหลือเชื่อของซิมไบโอตทำให้ปีเตอร์ ปาร์กเกอร์ และไมลส์ โมราเลสต้องพยายามต่อสู้สุดกำลัง ในขณะเดียวกันก็ต้องรักษาสมดุลระหว่างการใช้ชีวิต มิตรภาพ และหน้าที่ของผู้ปกป้องในเกมสไปเดอร์แมนภาคต่อสุดเร้าใจที่ใคร ๆ ต่างก็ชื่นชมอย่างล้นหลามบน PC",
+    "price": 49.99,
+    "offerPrice": 69.99,
+    "image": [
+      "https://res.cloudinary.com/donamoyxz/image/upload/v1740451969/pnqs0zo3bszvnmhkj8hk.jpg",
+      "https://res.cloudinary.com/donamoyxz/image/upload/v1740451969/y04mtwzbiz5popoxx4b9.jpg",
+      "https://res.cloudinary.com/donamoyxz/image/upload/v1740451968/sc3sa0z3rc6nh4tulwiu.jpg"
+    ],
+    "category": "Earphone",
+    "date": 1740451970034,
+    "__v": 0
   }
 ]
 
