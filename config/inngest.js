@@ -1,6 +1,7 @@
 import { Inngest } from "inngest"
 import connectDB from "./db"
 import User from "@/models/User"
+import Order from "@/models/Order"
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "GameStore-next" })
@@ -76,7 +77,7 @@ export const createUserOrder = inngest.createFunction(
         })
 
         await connectDB()
-        await orders.insertMany(orders)
+        await Order.insertMany(orders)
 
         return { success: true, processed: orders.length }
 
