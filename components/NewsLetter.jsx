@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaGamepad } from "react-icons/fa";  // นำเข้าไอคอนเกมส์คอนโซลจาก react-icons
 
 const NewsLetter = () => {
   const [hearts, setHearts] = useState([]);
@@ -39,9 +40,9 @@ const NewsLetter = () => {
         />
         <button
           onClick={handleClick}
-          className="md:px-12 px-8 h-full text-white bg-orange-600 rounded-md rounded-l-none relative overflow-hidden"
+          className="md:px-12 px-8 h-full text-white bg-red-600 rounded-md rounded-l-none relative overflow-hidden transform transition duration-300 hover:scale-105 hover:bg-red-700 active:scale-95 active:bg-red-800"
         >
-          Click
+          <FaGamepad className="text-2xl" /> {/* แสดงไอคอนเกมส์คอนโซล */}
         </button>
       </div>
 
